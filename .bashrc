@@ -99,6 +99,12 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias lf='yazi'
+alias gis='git status'
+alias gl='git log'
+alias gph='git push'
+alias gpl='git pull'
+alias gci='git commit'
+alias gcim='git commit -m'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -135,3 +141,7 @@ export ORACLE_DIR="/opt/oracle/instantclient"
 # Create a readline macro
 bind -x '"\C-f": tmux_sessionizer'
 eval "$(starship init bash)"
+
+eval "$(thefuck --alias)"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
