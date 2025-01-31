@@ -1,0 +1,14 @@
+# Keyboard layout
+#
+# Displays current keyboard layout.
+
+[keyindicator-num]
+command=../scripts/lock-keys
+KEY=NUM
+markup=pango
+interval=once
+signal=10
+#TEXT_ON=NumLockOn
+#TEXT_OFF=NumLockOff
+#COLOR_ON=#00FF00
+#HIDE_WHEN_OFF=1

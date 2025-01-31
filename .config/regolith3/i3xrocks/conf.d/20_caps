@@ -1,0 +1,22 @@
+# Keyboard layout
+#
+# Displays current keyboard layout.
+
+# [caps-lock]
+# command=xset -q | grep Caps | awk '{ print $2, $4, $6, $8 }'
+# command=../scripts/lok-keys
+# interval=once
+# signal=10
+
+[keyindicator]
+command=../scripts/lock-keys
+KEY=CAPS
+markup=pango
+interval=once
+signal=10
+#TEXT_ON=CapsLockOn
+#TEXT_OFF=CapsLockOff
+#COLOR_ON=#00FF00
+#COLOR_OFF=#222222
+#BG_COLOR_ON=
+#BG_COLOR_OFF=

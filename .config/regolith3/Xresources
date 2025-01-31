@@ -1,0 +1,54 @@
+gnome.terminal.font:    BitstreamVeraSansMono Nerd Font 12
+
+/* wm.bar.font: Fira Sans Book 10 */
+/* i3xrocks.value.font:  Fira Sans Book 11 */
+i3xrocks.value.font:    BitstreamVeraSansMono Nerd Font 9
+wm.bar.font:    BitstreamVeraSansMono Nerd Font 9 
+
+gtk.font_name: Fira Sans Book 10
+gtk.document_font_name: Roboto Slab Regular 11
+gtk.monospace_font_name: Fira Mono Regular 11
+/* gtk.monospace_font_name: Fira Sans SemiBold 10 */
+
+/* themes */
+Xcursor.theme:  Pop
+gtk.icon_theme_name:    Pop
+gtk.theme_name: catppuccin-mocha-green-standard+default
+
+/* wallpaper */
+regolith.wallpaper.file: ~/Pictures/pop-minimal.png
+/* regolith.wallpaper.file: /usr/share/backgrounds/pop/kate-hazen-pop-space.png */
+
+i3-wm.bar.position: top
+wm.bar.position: top
+
+/* fuck this shit */
+wm.binding.display:Ctrl+Shift+d
+wm.binding.wifi:Ctrl+Shift+w
+wm.binding.settings:Ctrl+Shift+c
+wm.binding.bluetooth:Ctrl+Shift+b
+
+/* i3xrocks */
+i3xrocks.label.time:
+i3xrocks.label.memory:
+i3xrocks.label.battery0:        󰂃
+i3xrocks.label.battery100:      󱟢
+i3xrocks.label.battery20:       󰁻
+i3xrocks.label.battery50:       󰁾
+i3xrocks.label.battery80:       󰂁
+i3xrocks.label.batteryac:       󱠴
+i3xrocks.label.batterycharging: 󰂄
+i3xrocks.label.batteryunknown:  󱉝
+i3xrocks.label.up:      
+i3xrocks.label.down:      
+
+/* gaps */
+wm.gaps.inner.size:     5
+!regolith.look.path: /usr/share/regolith-look/gruvbox
+regolith.look.path: /usr/share/regolith-look/dracula
+
+/* border */
+wm.floatingwindow.border.size:  1
+wm.window.border.size:  1
+/* wm.client.focused_inactive.color.border:        #bd93f9 */
+wm.client.focused_inactive.color.child_border:  #00000000

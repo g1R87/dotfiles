@@ -1,0 +1,37 @@
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+bindsym --release Caps_Lock exec pkill -SIGRTMIN+10 i3xrocks #&& notify-send "Caps Lock" -t 100 -u low
+bindsym --release Num_Lock exec pkill -SIGRTMIN+10 i3xrocks #&& notify-send "Num Lock" -t 100 -u low
+
+#rofi
+#bindcode 133 --release exec --no-startup-id rofi -show drun
+
+bindsym $mod+q exec --no-startup-id ~/.config/i3/scripts/cycle_windows.py
+
+#for calendar
+for_window [class="Yad"] floating enable
+bindsym $mod+n exec yad --calendar --close-on-unfocus --no-buttons
+  
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+#ppi
+exec --no-startup-id xrdb -merge ~/.Xresources
+
+# focus the parent container
+#bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+d focus child
+
+# flameshot
+bindsym Print exec flameshot gui
+include $HOME/.config/i3/config.d/*
+
+# bar {
+    # position top
+    # status_command i3status 
+    # status_command i3blocks 
+# }

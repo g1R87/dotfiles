@@ -1,0 +1,22 @@
+assign [class="^Alacritty$"] → number 1
+
+assign [class="(?i)^google-chrome.*$"] → 2
+
+assign [class="^DBeaver$"] → number 3
+assign [class="^java$"] → number 3
+assign [class="^Java$"] → number 3
+
+assign [class="^libreoffice$"] → number 4
+assign [class="^soffice$"] → number 4
+assign [class="^Soffice$"] → number 4
+
+assign [class="^firefox$"] → number 5
+
+assign [class="^code$"] → number 6
+assign [class="^Code$"] → number 6
+
+assign [class="^postman$"] → number 8
+
+assign [class="^discord$"] → number 9
+assign [class="^skype$"] → number 9
+assign [class="^Skype$"] → number 9

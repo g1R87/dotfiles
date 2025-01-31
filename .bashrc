@@ -8,6 +8,9 @@ tmux_sessionizer() {
     tmux-sessionizer
 }
 
+tmux_sessionizer_config() {
+    tmux-config-sessionizer
+}
 
 # If not running interactively, don't do anything
 case $- in
@@ -140,8 +143,13 @@ export ORACLE_DIR="/opt/oracle/instantclient"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # Create a readline macro
 bind -x '"\C-f": tmux_sessionizer'
+bind -x '"\e\C-f": tmux_sessionizer_config'
 eval "$(starship init bash)"
 
-eval "$(thefuck --alias)"
+# eval "$(thefuck --alias)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

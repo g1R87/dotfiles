@@ -1,0 +1,11 @@
+# Date Time
+
+# [time]
+# interval=xresource:i3xrocks.time.interval 10
+
+[calendar]
+command=../scripts/calendar
+interval=1
+DATEFMT=+%m/%d %H:%M:%S
+HEIGHT=180
+WIDTH=220

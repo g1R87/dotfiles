@@ -1,0 +1,3 @@
+#calulator
+for_window [class="^gnome-calculator$"] floating enable
+for_window [class="^Gnome-calculator$"] floating enable
