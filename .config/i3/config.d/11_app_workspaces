@@ -6,9 +6,9 @@ assign [class="^DBeaver$"] → number 3
 assign [class="^java$"] → number 3
 assign [class="^Java$"] → number 3
 
-assign [class="^libreoffice$"] → number 4
 assign [class="^soffice$"] → number 4
 assign [class="^Soffice$"] → number 4
+assign [class="^libreoffice$"] → number 4
 
 assign [class="^firefox$"] → number 5
 
