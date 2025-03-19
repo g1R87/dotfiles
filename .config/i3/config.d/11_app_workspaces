@@ -1,4 +1,4 @@
-assign [class="^Alacritty$"] → number 1
+#assign [class="^Alacritty$"] → number 1
 
 assign [class="(?i)^Google-chrome.*$"] → 2
 assign [class="(?i)^google-chrome.*$"] → 2

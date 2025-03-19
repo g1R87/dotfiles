@@ -50,5 +50,10 @@ regolith.look.path: /usr/share/regolith-look/dracula
 /* border */
 wm.floatingwindow.border.size:  1
 wm.window.border.size:  1
+/*wm.client.focused.color.border: #bd93f9*/
+/*wm.client.focused.color.border: #1fcf71*/
 /* wm.client.focused_inactive.color.border:        #bd93f9 */
 wm.client.focused_inactive.color.child_border:  #00000000
+regolith.wallpaper.file: ~/Pictures/Wallpapers/spiderverse.jepg
+regolith.wallpaper.file: home/g1r/Pictures/Wallpapers/spiderverse.jepg
+regolith.wallpaper.file: /home/g1r/Pictures/Wallpapers/spiderverse.jpeg
