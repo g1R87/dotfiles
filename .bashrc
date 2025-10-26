@@ -2,8 +2,6 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-#bind
-# Define the function
 tmux_sessionizer() {
     tmux-sessionizer
 }
@@ -98,7 +96,10 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
+alias resetresolv="~/.local/scripts/reset-resolver.sh"
+alias modkey="~/.local/scripts/toggle-keys"
 alias ll='ls -alF'
+alias ghar='cd ~'
 alias la='ls -A'
 alias l='ls -CF'
 alias lf='yazi'
@@ -107,7 +108,10 @@ alias gl='git log'
 alias gph='git push'
 alias gpl='git pull'
 alias gci='git commit'
-alias gcim='git commit -m'
+alias gcm='git commit -m'
+# alias cod='codium'
+alias scmd='s3cmd'
+alias uvim='uv run nvim'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -122,6 +126,13 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+#NOTE: set VIM MODE
+set -o vi
+bind -m vi-insert
+bind -m vi-command
+bind -x '"\C-f": tmux_sessionizer'
+bind -x '"\e\C-f": tmux_sessionizer_config'
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -132,25 +143,22 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-PATH=$HOME/.config/composer/vendor/bin:~/.composer/vendor/bin:/usr/local/go/bin:$HOME/.local/share/bob/nvim-bin:$HOME/.deno/bin:$HOME/.local/scripts/:$PATH
+PATH=$HOME/.config/composer/vendor/bin:~/.composer/vendor/bin:/usr/local/go/bin:$HOME/go/bin:$HOME/.local/share/bob/nvim-bin:$HOME/.local/bin:$HOME/.deno/bin:$HOME/.local/scripts/:$PATH
 export PATH
 . "$HOME/.cargo/env"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-export ORACLE_DIR="/opt/oracle/instantclient"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# Create a readline macro
-bind -x '"\C-f": tmux_sessionizer'
-bind -x '"\e\C-f": tmux_sessionizer_config'
 eval "$(starship init bash)"
 
-# eval "$(thefuck --alias)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+set -o vi
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-stty -ixon
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+eval "$(thefuck --alias)"
+export EDITOR=vim
