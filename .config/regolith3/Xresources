@@ -13,10 +13,11 @@ gtk.monospace_font_name: Fira Mono Regular 11
 /* themes */
 Xcursor.theme:  Pop
 gtk.icon_theme_name:    Pop
-gtk.theme_name: catppuccin-mocha-green-standard+default
+/*gtk.theme_name: catppuccin-mocha-green-standard+default*/
+gtk.theme_name: dracula-gtk-theme
 
 /* wallpaper */
-regolith.wallpaper.file: ~/Pictures/pop-minimal.png
+regolith.wallpaper.file: ~/Pictures/Wallpapers/central-stratum-far.png
 /* regolith.wallpaper.file: /usr/share/backgrounds/pop/kate-hazen-pop-space.png */
 
 i3-wm.bar.position: top
@@ -50,10 +51,43 @@ regolith.look.path: /usr/share/regolith-look/dracula
 /* border */
 wm.floatingwindow.border.size:  1
 wm.window.border.size:  1
-/*wm.client.focused.color.border: #bd93f9*/
-/*wm.client.focused.color.border: #1fcf71*/
-/* wm.client.focused_inactive.color.border:        #bd93f9 */
+
+wm.client.focused_inactive.color.border:        #00000000
 wm.client.focused_inactive.color.child_border:  #00000000
-regolith.wallpaper.file: ~/Pictures/Wallpapers/spiderverse.jepg
-regolith.wallpaper.file: home/g1r/Pictures/Wallpapers/spiderverse.jepg
-regolith.wallpaper.file: /home/g1r/Pictures/Wallpapers/spiderverse.jpeg
+wm.client.focused_inactive.color.indicator:     #00000000
+
+! wm.client.focused.color.border: #bd93f9
+! wm.client.focused.color.border: #1fcf71
+! wm.client.focused_inactive.color.border:        #bd93f9 
+! wm.client.focused_inactive.color.child_border:  #00000000
+#wm.client.focused.color.border: #ff5733
+#wm.client.focused.color.background:     #ff5733
+#wm.bar.workspace.active.background.color:       #ff5733
+#wm.bar.workspace.active.border.color:   #ff5733
+#wm.bar.workspace.active.background.color:       #ff5733
+#wm.bar.workspace.active.border.color:   #ff5733
+
+/* color_red #cc0000 */
+
+
+
+wm.workspace.01.name: 1
+wm.workspace.02.name: 2
+wm.workspace.03.name: 3
+wm.workspace.04.name: 4
+wm.workspace.05.name: 5
+wm.workspace.06.name: 6
+wm.workspace.07.name: 7
+wm.workspace.08.name: 8
+wm.workspace.09.name: 9
+wm.workspace.010.name: 10
+wm.workspace.011.name: 11
+wm.workspace.012.name: 12
+wm.workspace.013.name: 13
+wm.workspace.014.name: 14
+wm.workspace.015.name: 15
+wm.workspace.016.name: 16
+wm.workspace.017.name: 17
+wm.workspace.018.name: 18
+wm.workspace.019.name: 19
+wm.workspace.020.name: 20
