@@ -1,1 +1,2 @@
 bindsym $mod+semicolon exec dunstctl close-all
+exec --no-startup-id xdotool behave_screen_edge bottom-left exec --no-startup-id modkey

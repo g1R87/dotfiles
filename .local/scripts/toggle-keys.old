@@ -1,0 +1,86 @@
+#!/bin/bash
+
+# --- Configuration ---
+# File to store the desired state: 'enabled' or 'disabled'
+STATE_FILE="$HOME/.modkey_swap_state"
+SWAP_OPTION="altwin:swap_lalt_lwin"
+# Add any other base options you always want active here (comma-separated)
+BASE_OPTIONS="" 
+# ---------------------
+
+# Function to read the current state from the state file
+get_saved_state() {
+    if [ -f "$STATE_FILE" ]; then
+        cat "$STATE_FILE" | tr -d '[:space:]' | tr '[:upper:]' '[:lower:]'
+    else
+        # Default state if file doesn't exist
+        echo "disabled"
+    fi
+}
+
+# Function to apply the options based on the target state
+apply_options() {
+    local target_state="$1"
+    local final_options="$BASE_OPTIONS"
+    local message=""
+
+    if [ "$target_state" == "enabled" ]; then
+        if [ -n "$final_options" ]; then
+            final_options="${final_options},${SWAP_OPTION}"
+        else
+            final_options="${SWAP_OPTION}"
+        fi
+        message="Left Alt and Super swap ENABLED."
+    else
+        # If disabled, only apply base options
+        message="Left Alt and Super swap DISABLED."
+    fi
+
+    # Apply the settings
+    setxkbmap -option "$final_options"
+
+    # Display the result
+    echo "$message Applied options: '$final_options'"
+    
+    # Save the new state
+    echo "$target_state" > "$STATE_FILE"
+}
+
+# Function to toggle the state
+toggle_state() {
+    if [ -z "$DISPLAY" ]; then
+        echo "Error: X display not found. This script requires an Xorg session."
+        return 1
+    fi
+
+    local current_saved_state=$(get_saved_state)
+
+    if [ "$current_saved_state" == "enabled" ]; then
+        # If currently enabled, disable it
+        apply_options "disabled"
+    else
+        # If currently disabled, enable it
+        apply_options "enabled"
+    fi
+}
+
+# Function to re-apply the state (used on login/resume)
+reapply_state() {
+    if [ -z "$DISPLAY" ]; then
+        return 1
+    fi
+    local saved_state=$(get_saved_state)
+    echo "Restoring key swap state: $saved_state"
+    apply_options "$saved_state"
+}
+
+
+# --- Script Execution ---
+
+# Check arguments to determine mode
+if [ "$1" == "--reapply" ]; then
+    reapply_state
+else
+    # Default behavior is to toggle
+    toggle_state
+fi

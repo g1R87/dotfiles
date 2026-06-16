@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Ensure we have the DISPLAY environment variable
+export DISPLAY=:0
+export XAUTHORITY=/home/$(whoami)/.Xauthority
+
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+STATE_FILE="$DIR/modkey.state"
+
+if [ -f "$STATE_FILE" ]; then
+    state=$(cat "$STATE_FILE")
+    if [ "$state" == "swapped" ]; then
+        setxkbmap -option "altwin:swap_lalt_lwin"
+    else
+        setxkbmap -option ""
+    fi
+fi

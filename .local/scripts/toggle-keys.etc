@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Permanent Toggle for Left Alt and Left Super swap
+KEYBOARD_CONF="/etc/default/keyboard"
+OPTION="altwin:swap_lalt_lwin"
+
+if [ "$EUID" -ne 0 ]; then
+    echo "Please run as root (sudo ./toggle-keys)"
+    exit 1
+fi
+
+# Check if the option is currently in the file
+if grep -q "$OPTION" "$KEYBOARD_CONF"; then
+    # DISABLE: Write the file without the option
+    cat << EOF > "$KEYBOARD_CONF"
+XKBLAYOUT=us
+BACKSPACE=guess
+XKBOPTIONS=""
+EOF
+    echo "Permanent Swap: DISABLED (Windows is Mod)"
+    notify-send -t 2000 "Keyboard" "Windows key is Mod"
+else
+    # ENABLE: Write the file with the option
+    cat << EOF > "$KEYBOARD_CONF"
+XKBLAYOUT=us
+BACKSPACE=guess
+XKBOPTIONS="$OPTION"
+EOF
+    echo "Permanent Swap: ENABLED (Left Alt is Mod)"
+    notify-send -t 2000 "Keyboard" "Left Alt is Mod"
+fi
+
+# Apply changes to the live session
+# 1. Re-read the file we just wrote
+source "$KEYBOARD_CONF"
+# 2. Tell X11 to apply it immediately
+setxkbmap -layout "$XKBLAYOUT" -option "$XKBOPTIONS"
+# 3. Tell the system console and hardware daemon to sync
+setupcon --save
+udevadm trigger --subsystem-match=input --action=change

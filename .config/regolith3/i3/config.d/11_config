@@ -1,0 +1,47 @@
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+bindsym --release Caps_Lock exec pkill -SIGRTMIN+10 i3xrocks #&& notify-send "Caps Lock" -t 100 -u low
+bindsym --release Num_Lock exec pkill -SIGRTMIN+10 i3xrocks #&& notify-send "Num Lock" -t 100 -u low
+exec --no-startup-id xdotool behave_screen_edge bottom-left exec --no-startup-id modkey
+# exec --no-startup-id xautolock -time 5 -locker "~/.local/scripts/start_hollywood_display.sh"
+
+#rofi
+#bindcode 133 --release exec --no-startup-id rofi -show drun
+
+bindsym $mod+q exec --no-startup-id ~/.config/i3/scripts/cycle_windows.py
+bindsym $mod+Shift+m exec --no-startup-id ~/.local/scripts/toggle-keys
+bindsym $mod+Shift+u exec --no-startup-id ~/.local/scripts/startup
+exec --no-startup-id ~/.local/scripts/apply-toggle
+
+#for calendar
+for_window [class="Yad"] floating enable
+bindsym $mod+n exec yad --calendar --close-on-unfocus --no-buttons
+  
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+#ppi
+exec --no-startup-id xrdb -merge ~/.Xresources
+
+exec --no-startup-id xset r rate 250 33
+
+# focus the parent container
+#bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+d focus child
+
+# flameshot
+bindsym Print exec flameshot gui
+include $HOME/.config/i3/config.d/*
+# bindsym Print exec --no-startup-id gradia
+
+focus_follows_mouse yes
+
+# bar {
+    # position top
+    # status_command i3status 
+    # status_command i3blocks 
+# }

@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Toggle Left Alt and Left Super swap for Xorg (i3, GNOME, etc.)
+
+toggle_left_alt_super() {
+    # Check if we are in an X11 session
+    if [ -z "$DISPLAY" ]; then
+        echo "Error: X11 session not detected."
+        return 1
+    fi
+
+    # Get current XKB options
+    # We use -query to see what is currently set
+    current_options=$(setxkbmap -query | grep options | awk '{print $2}')
+
+    if [[ "$current_options" == *"altwin:swap_lalt_lwin"* ]]; then
+        # Disable swap: Remove the specific option from the string
+        # This replaces the swap string with nothing
+        new_options=$(echo "$current_options" | sed 's/altwin:swap_lalt_lwin//g' | sed 's/,,/,/g' | sed 's/,$//' | sed 's/^,//')
+        
+        setxkbmap -option "" # Clear first to avoid appending
+        if [ -n "$new_options" ]; then
+            setxkbmap -option "$new_options"
+        fi
+        
+        echo "Left Alt and Super swap DISABLED"
+        notify-send -t 2000 "Keyboard" "Windows key is the mod key"
+    else
+        # Enable swap: Append it to existing options
+        if [ -z "$current_options" ]; then
+            setxkbmap -option "altwin:swap_lalt_lwin"
+        else
+            setxkbmap -option "${current_options},altwin:swap_lalt_lwin"
+        fi
+        
+        echo "Left Alt and Super swap ENABLED"
+        notify-send -t 2000 "Keyboard" "Left Alt is now the mod key"
+    fi
+}
+
+toggle_left_alt_super

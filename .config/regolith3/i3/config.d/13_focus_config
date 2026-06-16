@@ -1,0 +1,2 @@
+bindsym $mod+x [class="^firefox$"] focus 
+# focus_follows_mouse yes

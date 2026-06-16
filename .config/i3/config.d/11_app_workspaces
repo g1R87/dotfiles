@@ -3,26 +3,41 @@
 assign [class="(?i)^Google-chrome.*$"] → number 2
 assign [class="(?i)^google-chrome.*$"] → number 2
 
-assign [class="^DBeaver$"] → number 3
-assign [class="^java$"] → number 3
-assign [class="^Java$"] → number 3
+assign [class="^code$"] → number 3
+assign [class="^Code$"] → number 3
+assign [class="^vscodium$"] → number 3
+assign [class="^VSCodium$"] → number 3
+assign [class="^antigravity$"] → number 3
+assign [class="^Antigravity$"] → number 3
+assign [class="^cursor$"] → number 3
+assign [class="^Cursor$"] → number 3
 
-#laravel-dev", "laravel-dev
-
-assign [class="^soffice$"] → number 4
-assign [class="^Soffice$"] → number 4
-assign [class="^libreoffice$"] → number 4
+assign [class="^DBeaver$"] → number 4
+assign [class="^java$"] → number 4
+assign [class="^Java$"] → number 4
 
 assign [class="^firefox$"] → number 5
 
-assign [class="^code$"] → number 6
-assign [class="^Code$"] → number 6
-assign [class="^vscodium$"] → number 6
-assign [class="^VSCodium$"] → number 6
+assign [class="^steamwebhelper$"] → number 7
+assign [class="^steam$"] → number 7
 
-assign [class="^postman$"] → number 8
+#laravel-dev", "laravel-dev
+
+assign [class="^soffice$"] → number 6
+assign [class="^Soffice$"] → number 6
+assign [class="^libreoffice$"] → number 6
+
+
+
+
+assign [class="^harmonymusic$"] → number 8
+assign [class="^Harmonymusic$"] → number 8
 
 assign [class="^discord$"] → number 9
+assign [class="^discord-canary$"] → number 9
 assign [class="^skype$"] → number 9
 assign [class="^Skype$"] → number 9
 assign [class="^teams-for-linux$"] → number 9
+
+assign [class="^postman$"] → number 10
+assign [class="^Postman$"] → number 10
